@@ -35,11 +35,11 @@ const RandomColor = () => {
     <div
       className={`w-[100%] h-[100vh] bg-[${color}] p-12 flex flex-col gap-y-6`}
     >
-      <h1 className="text-6xl text-center">RANDOM COLOR</h1>
+      <h1 className="text-6xl text-center text-white">RANDOM COLOR</h1>
       <div className="flex justify-center gap-x-4">
         <button
-          className={`border-2 p-2 rounded-md bg-white ${
-            typeOfColor === "hex" ? "bg-red-400" : ""
+          className={`border-2 p-2 rounded-md hover:bg-blue-300 transition-transform transform hover:scale-110 active:scale-100 focus:outline-none duration-400 focus:ring focus:border-blue-300 ${
+            typeOfColor === "hex" ? "bg-red-600" : " bg-white"
           }`}
           onClick={() => setTypeOfColor("hex")}
         >
@@ -47,8 +47,8 @@ const RandomColor = () => {
         </button>
 
         <button
-          className={`border-2 p-2 rounded-md bg-white ${
-            typeOfColor === "rgb" ? "bg-red-400" : ""
+          className={`border-2 p-2 rounded-md hover:bg-blue-300 transition-transform transform hover:scale-110 active:scale-100 focus:outline-none duration-400 focus:ring focus:border-blue-300 ${
+            typeOfColor === "rgb" ? "bg-red-600" : " bg-white"
           }`}
           onClick={() => setTypeOfColor("rgb")}
         >
@@ -56,11 +56,14 @@ const RandomColor = () => {
         </button>
 
         <button
-          className="border-2 p-2 rounded-md bg-white"
+          className="border-2 p-2 rounded-md bg-white hover:bg-blue-300 transition-transform transform hover:scale-110 active:scale-100 duration-400 focus:outline-none focus:ring focus:border-blue-300"
           onClick={typeOfColor === "hex" ? handleHexColor : handleRGBColor}
         >
           Create Random Color
         </button>
+      </div>
+      <div className="py-20 shadow-2xl border w-[40%] m-[auto]">
+        <h1 className="text-center text-white text-3xl">{typeOfColor === "hex" ? "HEX Color : " : "RGB Color : " }{color}</h1>
       </div>
     </div>
   );
